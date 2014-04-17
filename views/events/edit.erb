@@ -1,0 +1,8 @@
+  <h2>Update Your Life Event:</h2>
+         		<form action="events/updated" method="put">
+	         			<input type="hidden" name="_method" value="put">
+	              <input type="text" id="life_events_description" name="life_events[description]" placeholder="<%= @editted_event.description %>">
+	              <input type="text" id="life_events_date_happened" name="life_events[date_happened]" placeholder="<%= @editted_event.date_happened %>">
+	               <input type="text" id="life_events_person_most_affected" name="life_events[person_most_affected]" placeholder="<%= @editted_event.person_most_affected %>">
+	              <input type="submit">
+            </form>

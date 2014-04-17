@@ -1,0 +1,8 @@
+ <h2>Update Your School:</h2>
+         		<form action="schools/<%= @editted_school.id %>/updated" method="put">
+	         			<input type="hidden" name="_method" value="put">
+	              <input type="text" id="school_attendeds_name" name="school_attendeds[name]" placeholder="<%= @editted_school.name %>">
+	              <input type="text" id="school_attendeds_description" name="school_attendeds[description]" placeholder="<%= @editted_school.description %>">
+	               <input type="text" id="school_attendeds_date_graduated" name="school_attendeds[date_graduated]" placeholder="<%= @editted_school.date_graduated %>">
+	              <input type="submit">
+            </form>

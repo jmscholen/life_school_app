@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/application.css">
+	<title>Life and School App</title>
+</head>
+<body>
+<h1>The Greatest Life Events and Schools Attended Website EVER!!!!</h1>
+<div>
+	<div>
+		<h2>Life Events</h2> <button><a href="/events/new">Add Life Event</a></button>
+			<ul>
+				<% @life_events.each do |event| %>
+				<li> <%= event.description %> <button><a href="/events/<%= event.id %>/edit">Edit</a></button> <button><a href="/events/<%= event.id %>/delete">Delete</a></button></li>
+				<% end %> 
+
+			</ul>
+	</div>
+	<div>
+		<h2>Schools Attended</h2> <button><a href="/schools/new">Add School</a></button>
+			<ul>
+				<% @schools.each do |school| %>
+				<li> <%= school.name %> <button><a href="/schools/<%= school.id %>/edit">Edit</a></button> <button><a href="/schools/<%= school.id %>/delete">Delete</a></button></li>
+				<% end %>			
+			</ul>
+	</div>
+</div>
+</body>
+</html>
