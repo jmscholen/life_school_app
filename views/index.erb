@@ -1,29 +1,82 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="/application.css">
-	<title>Life and School App</title>
-</head>
-<body>
-<h1>The Greatest Life Events and Schools Attended Website EVER!!!!</h1>
-<div>
-	<div>
-		<h2>Life Events</h2> <button><a href="/events/new">Add Life Event</a></button>
-			<ul>
-				<% @life_events.each do |event| %>
-				<li> <%= event.description %> <button><a href="/events/<%= event.id %>/edit">Edit</a></button> <button><a href="/events/<%= event.id %>/delete">Delete</a></button></li>
-				<% end %> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
 
-			</ul>
-	</div>
-	<div>
-		<h2>Schools Attended</h2> <button><a href="/schools/new">Add School</a></button>
-			<ul>
-				<% @schools.each do |school| %>
-				<li> <%= school.name %> <button><a href="/schools/<%= school.id %>/edit">Edit</a></button> <button><a href="/schools/<%= school.id %>/delete">Delete</a></button></li>
-				<% end %>			
-			</ul>
-	</div>
-</div>
-</body>
+    <title>Sintra HW 3</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          </button>
+          <a class="navbar-brand" href="/">Sinatra HW 3</a>
+        </div>
+        <div class="collapse navbar-collapse">
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>The Greatest Life Events and Schools Attended Website EVER!!!!</h1>
+
+				<div class="row">
+					<div class="col-md-6">
+        
+							<h2>Life Events</h2> 
+              <button><a href="/events/new">Add Life Event</a></button>
+								<ul class="list-group">
+          
+										<% @life_events.each do |event| %>
+										<li class="list-group-item"><p class="text-left"><%= event.description %><button><a href="/events/<%= event.id %>/edit">Edit</a></button> <button><a href="/events/<%= event.id %>/delete">Delete</a></button></p></li>
+										<% end %> 
+
+								</ul>
+					</div>
+					<div class="col-md-6">
+							<h2>Schools Attended</h2> <button><a href="/schools/new">Add School</a></button>
+								<ul class="list-group">
+									<% @schools.each do |school| %>
+									<li class="list-group-item"><p class="text-left"><%= school.name %> <button><a href="/schools/<%= school.id %>/edit">Edit</a></button> <button><a href="/schools/<%= school.id %>/delete">Delete</a></button></p></li>
+									<% end %>			
+								</ul>
+					</div>
+					</div>
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
 </html>
+

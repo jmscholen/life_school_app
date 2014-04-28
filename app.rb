@@ -9,6 +9,18 @@ get "/" do
 	@schools = SchoolAttended.all
 	erb :"/index"
 end
+
+get "/schools" do
+	@schools = SchoolAttended.all
+	erb :"/schools/index"
+end
+
+get "/events" do 
+	@life_events = LifeEvent.all
+	erb :"/events/index"
+end
+
+
 ###Go error
 get "/error" do 
 	erb :"/error"
@@ -41,9 +53,9 @@ get "/events/:id/edit" do
 	erb :"/events/edit"
 end
 
-put "events/updated" do
-	updated_life_event = LifeEvent.update(params[:life_events])
-	updated_life_event.save
+put "events/:id/edit" do
+	updated_life_event = LifeEvent.find(params[:id])
+	updated_life_event.update_attributes(params[:life_events])
 	redirect "/"
 end
 
@@ -53,20 +65,33 @@ get "/schools/:id/edit" do
 	erb :"/schools/edit"
 end
 
-put "schools/:id/updated" do
+put "/schools/:id/edit" do
 	updated_school_event = SchoolAttended.find(params[:id])
-	updated_school_event = SchoolAttended.update(params[:school_attendeds])
-	updated_school_event.save
+	updated_school_event.update_attributes(params[:school_attended])
 	redirect "/"
 end
 
+get "/events/:id" do
+	@life_event = LifeEvent.find(params[:id])
+	erb :"/events/show"
+end
 
-delete "/schools/:id/delete" do
+get "/schools/:id" do
+	@school = SchoolAttended.find(params[:id])
+	erb :"/schools/show"
+end
+
+get "/schools/:id/delete" do
 	school_to_delete = SchoolAttended.find(params[:id])
-	school_to_delete.destroy
+	school_to_delete.delete
 	redirect "/"
 end
 
+get "/events/:id/delete" do
+	event_to_delete = LifeEvent.find(params[:id])
+	event_to_delete.delete
+	redirect "/"
+end
 
 
 class LifeEvent < ActiveRecord::Base

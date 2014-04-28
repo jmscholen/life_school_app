@@ -25,14 +25,20 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-<body>  
- <h2>Update Your Life Event:</h2>
-	<form action="events/<%= @editted_event.id %>/edit" method="put">
-	    <input type="hidden" name="_method" value="put">
-	    <input type="text" id="life_events_description" name="life_events[description]" placeholder="<%= @editted_event.description %>">
-	    <input type="text" id="life_events_date_happened" name="life_events[date_happened]" placeholder="<%= @editted_event.date_happened %>">
-	    <input type="submit">
-    </form>
+<body>
+<div class="row">
+	<div class="col-sm-4">
+        
+		<h2>Life Events</h2> <button><a href="/events/new">Add Life Event</a></button>
+			<ul class="list-group">
+          
+				<% @life_events.each do |event| %>
+				<li class="list-group-item"> <%= event.description %> <button><a href="/events/<%= event.id %>/edit">Edit</a></button> <button><a href="/events/<%= event.id %>/delete">Delete</a></button></li>
+				<% end %> 
+
+			</ul>
+	</div>
+
 </div><!-- /.container -->
 
 
